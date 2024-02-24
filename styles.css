@@ -1,0 +1,173 @@
+/* Chatbot container when closed is just the icon */  
+#chatbot-container {  
+    position: fixed;  
+    bottom: 20px;  
+    right: 20px;  
+    z-index: 1000; 
+}  
+  
+#chat-icon {    
+    display: block; /* Show the icon by default */    
+    background-image: url('phoenix-icon.jpg'); /* Replace with your chat icon image */    
+    width: 60px;    
+    height: 60px;    
+    background-size: contain; /* This will make sure your image is not bigger than its container */  
+    background-position: center; /* This will center your image within its container */  
+    background-repeat: no-repeat;    
+    cursor: pointer;    
+    border-radius: 50%;    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);    
+}  
+  
+
+  
+#chat-content {  
+    display: none; /* Hide the chat content by default */  
+    position: fixed;  
+    bottom: 90px; /* Height of chat-icon plus some offset */  
+    right: 20px;  
+    width: 400px;  
+    border-radius: 10px;  
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);  
+    background-color: #fff;  
+    overflow: hidden;
+}  
+  
+#chat-header {  
+    background-color: #ff5e00; /* Header color */  
+    color: #fff;  
+    padding: 15px;  
+    display: flex;  
+    justify-content: space-between;  
+    align-items: center;  
+    border-top-left-radius: 10px;  
+    border-top-right-radius: 10px;  
+}  
+  
+.chat-title {  
+    font-weight: bold;  
+}  
+  
+.chat-status {  
+    font-size: 0.8em;  
+    margin-left: 8px;  
+}  
+  
+.close-icon {  
+    cursor: pointer;  
+    font-size: 1.2em;  
+}  
+  
+#chat-container {  
+    height: 400px; /* Adjust height as needed */  
+    overflow-y: auto; /* Enable scroll */  
+    padding: 15px;  
+    background-color: #f1dfdf; /* Light grey background */  
+}  
+  
+.user, .bot {  
+    display: block;  
+    clear: both;  
+    padding: 10px;  
+    margin-bottom: 8px;  
+    max-width: fit-content;  
+    border-radius: 18px;  
+}  
+  
+.user {  
+    background-color: #ff5e00; /* Match header color */  
+    color: #fff;  
+    text-align: left;
+}  
+  
+.bot {  
+    background-color: #f0f2f4; /* Light grey bubble */  
+    color: #333;  
+    text-align: left;  
+}  
+  
+#chat-input-area {  
+    display: flex;  
+    padding: 10px;  
+    border-top: 1px solid #ccc;  
+}  
+  
+#user-input {  
+    flex: 1;  
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    border-radius: 18px;  
+    margin-right: 10px;  
+    outline: none;  
+}  
+  
+#send-btn {  
+    background-color: #ff5e00; /* Match header color */  
+    color: #fff;  
+    border: none;  
+    padding: 10px 15px;  
+    border-radius: 18px;  
+    cursor: pointer;  
+    outline: none;  
+}  
+  
+/* Add this to show the chat content when the container is open */    
+#chatbot-container.open #chat-content {    
+    display: block;    
+    bottom: 20px;  
+    right: 20px;
+}    
+  
+#chatbot-container.open #chat-icon {    
+    display: none; /* Hide the chat icon when open */    
+    bottom: 20px;  
+    right: 20px;
+}    
+
+body {  
+    font-family: 'Source Sans Pro', sans-serif;  
+}  
+  
+.message-container {  
+    display: flex;  
+    flex-direction: column;  
+    align-items: flex-start;  
+    margin-bottom: 10px;  
+}  
+  
+.message-icon {  
+    width: 20px;  
+    height: 20px;  
+    border-radius: 50%;  
+    margin-right: 5px;  
+}  
+  
+.message-info {  
+    display: flex;  
+    align-items: center;  
+    font-size: 12px;  
+    color: darkgray;  
+}  
+  
+.message-box {  
+    padding: 10px;  
+    border-radius: 15px;  
+    max-width: 80%;  
+}  
+  
+.message-timestamp {  
+    margin-left: 5px;  
+}  
+  
+.user .message-box {  
+    background-color: #ff5e00;  
+    color: #fff;  
+}  
+  
+.bot .message-box {  
+    background-color: #f0f2f4;  
+    color: #333;  
+}
+
+
+
