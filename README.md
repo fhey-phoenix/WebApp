@@ -41,3 +41,8 @@ Below is a brief description of each file in the given folder structure:
   - The styles for the web application's presentation, such as layout and colors.  
   
 The **`node_modules`** directory, which contains installed libraries and dependencies, is also part of the structure but is not shown in the image.  
+
+
+## Handy commands in CMD
+1. node server.js
+2. http-server -c-1 (open your index.html in incognito mode, otherwise changes in js code might not come through)
