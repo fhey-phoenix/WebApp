@@ -46,16 +46,16 @@ document.addEventListener("DOMContentLoaded", function() {
     // Add event listener to send button        
     sendBtn.addEventListener('click', function() {        
         // Get user input        
-        var userquestion = userInput.value;
+        var user_question = userInput.value;
         userInput.value = '';
-        displayUserMessage(userquestion);      
+        displayUserMessage(user_question);      
         // Create a new XMLHttpRequest      
         var xhr = new XMLHttpRequest();      
-        xhr.open('POST', 'http://localhost:3000/generate-answer', true);      
+        xhr.open('POST', 'https://wa-phx-01.azurewebsites.net/privategptstream', true);      
         xhr.setRequestHeader('Content-Type', 'application/json');      
         // Send the request      
-        xhr.send(JSON.stringify({ userquestion }));      
-        console.log(userquestion);    
+        xhr.send(JSON.stringify({ user_question }));      
+        console.log(user_question);    
     
         var lastBotMessageContainer = null;  
     
@@ -85,9 +85,9 @@ document.addEventListener("DOMContentLoaded", function() {
         };      
     });    
     
-    function displayUserMessage(userquestion) {    
+    function displayUserMessage(user_question) {    
         // Check if message is not empty        
-        if (userquestion.trim() !== '') {        
+        if (user_question.trim() !== '') {        
             // Get current time      
             var timestamp = new Date().toLocaleTimeString();      
     
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 <span class="message-timestamp">${timestamp}</span>      
             </div>    
             <div class="message-container user">    
-                <div class="message-box">${userquestion}</div>      
+                <div class="message-box">${user_question}</div>      
             </div>    
             `;      
         }  

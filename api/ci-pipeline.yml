@@ -1,0 +1,51 @@
+trigger:
+  branches:
+    include:
+      - dev
+
+
+jobs:
+- job: Job_1
+  displayName: Agent job 1
+  pool:
+    vmImage: ubuntu-latest    
+
+  steps:
+  - checkout: self
+    fetchDepth: 1
+  - task: Bash@3
+    displayName: Build extensions
+    inputs:
+      targetType: inline
+      script: >-
+        if [ -f extensions.csproj ]
+
+        then
+            dotnet build extensions.csproj --output ./bin
+        fi
+  - task: UsePythonVersion@0
+    displayName: Use Python 3.11
+    inputs:
+      versionSpec: 3.11
+  - task: Bash@3
+    displayName: Install Application Dependencies
+    inputs:
+      targetType: inline
+      script: >-
+        python -m venv worker_venv  
+
+        source worker_venv/bin/activate
+        
+        pip install setuptools 
+        
+        pip install -r requirements.txt 
+        
+  
+  - task: ArchiveFiles@2
+    displayName: Archive files
+    inputs:
+      rootFolderOrFile: $(System.DefaultWorkingDirectory)/
+      includeRootFolder: false
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish Artifact: drop'
+...
